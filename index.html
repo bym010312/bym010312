@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>박영민 | 백엔드 개발자</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <a href="#home"><h1>Park Youngmin</h1></a>
+    <button class="hamburger" aria-label="메뉴 열기">&#9776;</button>
+    <nav class="nav-menu">
+      <a href="#home">home</a>
+      <a href="#about">about me</a>
+      <a href="#skills">skill</a>
+      <a href="#projects">project</a>
+      <a href="#career">career</a>
+    </nav>
+  </header>
+
+  <section class="main-section" id="home">
+    <img src="image/my_img.png" alt="박영민 사진" />
+    <div>
+      <h1>백엔드 개발자</h1>
+      <h2>박영민 입니다.</h2>
+      <p>
+        컴퓨터공학을 전공하며 프로젝트로 백엔드 분야에 관심을 가지고 다양한 웹 개발 프로젝트를 진행해왔습니다. HTML, CSS,
+        JavaScript를 바탕으로 React와 Node.js를 활용한 웹 애플리케이션을 제작해본 경험이 있으며, 데이터베이스와 API 연동에도 익숙합니다.
+        사용자에게 더 나은 경험을 제공하고, 기술의 본질을 이해하는 풀스택 개발자로 성장하고 싶습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="profile-section" id="about">
+    <img src="image/mimogi_rectangle.png" alt="미모지" />
+    <div>
+      <h2>저는 이런 사람이에요</h2>
+      <p>이름: 박영민</p>
+      <p>연락처: 010-8689-4512</p>
+      <p>이메일: bym010312@naver.com</p>
+      <p>GitHub: <a href="https://github.com/bym010312">github.com/bym010312</a></p>
+    </div>
+  </section>
+
+  <section class="skills-section" id="skills">
+    <h2>이런 걸 써봤어요</h2>
+    <div class="skills">
+      <img src="image/html-logo.png" alt="HTML" />
+      <img src="image/css-logo.png" alt="CSS" />
+      <img src="image/js-logo.png" alt="JavaScript" />
+      <img src="image/python-logo.png" alt="Python" />
+      <img src="image/node-logo.png" alt="Node.js" />
+    </div>
+  </section>
+
+  <section class="projects-section" id="projects">
+    <h2>내가 만든 것들</h2>
+    <div class="projects">
+      <div class="project-card">안녕</div>
+      <div class="project-card"></div>
+      <div class="project-card"></div>
+      <div class="project-card"></div>
+      <div class="project-card"></div>
+    </div>
+  </section>
+
+  <section class="goal-section" id="career">
+    <h2>이런 일을 하고싶어요</h2>
+    <p>
+      사용자에게 가치를 전달하는 서비스에 기여하고 싶습니다. 백엔드와 프론트엔드 모두에 관심이 있으며,
+      실무에 필요한 역량을 차근히 쌓아가고 있습니다. 꾸준히 배우고, 성장하는 개발자가 목표입니다.
+    </p>
+  </section>
+<script>
+  window.onload = () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      console.log("햄버거 버튼 클릭됨");
+    });
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+header {
+  height: 50px;
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999; /* Ensure header stays above hover elements */
+}
+nav.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* 햄버거 버튼 - 기본은 숨김 */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* 모바일 화면용 설정 */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none !important;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #333;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    max-width: 200px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+nav.nav-menu.active {
+  display: flex !important;
+}
+nav a, header a{
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+nav.nav-menu a:hover {
+  text-decoration: underline;
+  color: #6df35d;
+}
+.main-section {
+  display: flex;
+  background: #1e1e1e;
+  color: white;
+  padding: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15%;
+}
+.main-section img {
+  width: 300px; /* 원하는 크기로 조정 */
+  height: auto;
+  border-radius: 10px; /* 선택: 이미지 둥글게 */
+}
+@media (max-width: 903px) {
+  .main-section {
+    flex-direction: column; /* 세로 배치로 변경 */
+    text-align: center;
+  }
+  .main-section img {
+    display: none;
+  }
+}
+.main-section div {
+  max-width: 600px;
+}
+.main-section h1 {
+  font-size: 3rem;
+  margin: 0;
+  line-height: 1;
+}
+.main-section h1:first-of-type  {
+  color: #4ade80; /* More visually balanced green */
+  margin-bottom: 0.2em;
+}
+.main-section p {
+  width: 25rem;
+  margin-top: 2rem;
+}
+.profile-section {
+  background: white;
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.profile-section img {
+  width: 150px;
+  margin-right: 2rem;
+}
+.skills-section {
+  background: #95c1ff;
+  text-align: center;
+  padding: 3rem 1rem;
+  padding-bottom: 4rem;
+}
+.skills-section h2 {
+  color: white;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+.skills {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.skills img {
+  height: 80px;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skills img:hover {
+  transform: scale(1.1);
+}
+.profile-section{
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+
+
+.projects-section, .goal-section {
+  padding: 3rem 2rem;
+}
+.projects-section h2, .goal-section h2 {
+  margin-bottom: 1rem;
+}
+.projects {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.projects-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 16px;
+  scroll-snap-type: x mandatory; /* 스냅 효과 */
+}
+.project-card {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 200px;
+  background: #ddd;
+  border-radius: 8px;
+  scroll-snap-align: start;
+  border: 1px solid #e0e0e0; /* 얇은 회색 테두리 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
