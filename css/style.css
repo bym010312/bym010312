@@ -125,3 +125,89 @@ h2 {
   color: #666;
   max-width: 500px;
 }
+
+
+/* profile 섹션 스타일 */
+#profile {
+  padding-top: 80px;
+  background-color: #f8f8f8;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4rem;
+  padding: 0 5%;
+}
+
+#idCard {
+  display: flex;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  gap: 30px;
+}
+
+#profileImage {
+  flex-shrink: 0;
+  width: 250px;
+}
+
+#profileImage img {
+    width: 180px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+#profileText {
+  flex: 1;
+  padding: 10px 0;
+}
+
+#profileText ul {
+  list-style: none;
+  padding: 0;
+}
+
+#profileText li {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+#profileText li strong {
+  margin-left: 10px;
+  color: #000;
+}
+
+#socialLink {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#socialLink ul {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+#socialLink li a {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #fff;
+    border-radius: 10px;
+    color: #333;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#socialLink li a:hover {
+    background: #444;
+    color: white;
+}
