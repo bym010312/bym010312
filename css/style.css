@@ -331,6 +331,21 @@ h2::after {
   position: relative;
 }
 
+.plan::after {
+    content: '예정';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(45deg, #ff6b6b, #ff8787);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
 .projectCard img {
   width: 100%;
   height: 200px;
