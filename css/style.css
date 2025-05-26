@@ -68,7 +68,6 @@ nav ul li a:hover {
 
 /* section 스타일 */
 section {
-
   width: 100%;
   height: auto;
   min-height: 100vh;
@@ -221,7 +220,7 @@ h2::after {
   justify-content: center;
 }
 
-#socialLink li a {
+.button {
   display: inline-block;
   padding: 8px 15px;
   background: #fff;
@@ -232,7 +231,7 @@ h2::after {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-#socialLink li a:hover {
+.button:hover {
   background: #444;
   color: white;
 }
@@ -493,15 +492,4 @@ h2::after {
   top: 10px;
   font-size: 24px;
   cursor: pointer;
-}
-
-#modal button {
-  margin-top: 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
 }
