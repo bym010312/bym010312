@@ -1,16 +1,11 @@
 # 자기소개 웹사이트
-
-한남대학교 컴퓨터공학과 2학년 학기말 과제로 만든 자기소개 및 이력 소개 웹사이트입니다.  
+한남대학교 컴퓨터공학과 웹스크립트 프로그래밍 학기말 과제로 만든 자기소개 및 이력 소개 웹사이트입니다.  
 사이트 보기: https://bym010312.github.io/bym010312/
 
 ## 사용 기술
 - HTML, CSS, JavaScript  
 - Git, Figma  
-
-## 프로젝트 소개 영상
-- 프로젝트별 소개 영상은 YouTube에 업로드된 URL을 `data-youtube-url` 속성에 넣으면 모달 내에 자동 삽입됩니다.  
-  - 예시: TechScope 프로젝트 소개 영상 URL을 `index.html`의 `data-youtube-url`에 입력  
-  - 결과: 모달에서 클릭 시 유튜브 플레이어로 재생
+- [Figma](https://www.figma.com/design/qbVREP6zCJlkcQf0EpsLgh/resume?node-id=0-1&t=GIBCJyv60Ylecusr-1)를 사용해 직접 UI를 디자인했습니다.
 
 ## 기능 목록
 
@@ -21,7 +16,7 @@
    - 모달에는 프로젝트 제목, 간략 설명, GitHub 링크, YouTube 영상(있을 경우)이 표시됩니다.  
 3. **코드 위치**:  
    - `index.html` → 각 프로젝트 카드에 `data-*` 속성 설정 (`data-title`, `data-desc`, `data-github`, `data-youtube-url`)  
-   - `script.js` → 3번째 줄부터 모달 로직  
+   - `script.js` → 3번째 줄부터 모달 로직 
 4. **코드 설명**:  
    - `document.querySelectorAll('.project-card')`로 모든 카드 요소를 선택  
    - 각 카드에 `addEventListener('click', showModal)`를 등록하여 클릭 시 모달 열기  
