@@ -1,23 +1,22 @@
-// DOM 요소 선택
 const modal = document.querySelector('#modal');
 const closeBtn = document.querySelector('.close');
 const projectCards = document.querySelectorAll('.projectCard');
+const licenseCards = document.querySelectorAll('.licenseCard');
 
-// 모달 내부 요소
 const modalTitle = modal.querySelector('h3');
 const modalContent = modal.querySelector('p');
-const modalButton = modal.querySelector('button'); // 버튼 요소 선택
+const modalButton = modal.querySelector('button'); 
 
 projectCards.forEach(card => {
     card.addEventListener('click', () => {
         const title = card.dataset.title;
         const description = card.dataset.description;
-        const githubUrl = card.dataset.githubUrl; // GitHub URL 가져오기
-        const youtubeUrl = card.dataset.youtubeUrl; // YouTube URL 가져오기
+        const githubUrl = card.dataset.githubUrl;
+        const youtubeUrl = card.dataset.youtubeUrl; 
 
         // 모달 내용 업데이트
         modalTitle.textContent = title;
-        modalContent.textContent = description;
+        modalContent.innerHTML = description;
 
         if (youtubeUrl) {
             // youtube URL이 있는 경우 iframe 생성
@@ -29,15 +28,10 @@ projectCards.forEach(card => {
             youtubeEmbed.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
             youtubeEmbed.allowFullscreen = true;
             modalContent.appendChild(youtubeEmbed); // 모달 내용에 추가
-        } else {
-            // youtube URL이 없는 경우 iframe 제거
-            const existingIframe = modalContent.querySelector('iframe');
-            if (existingIframe) {
-                modalContent.removeChild(existingIframe);
-            }
         }
 
-        // 버튼 클릭 이벤트 설정
+        // GitHub 버튼 보이기 및 클릭 이벤트 설정
+        modalButton.style.display = 'inline-block';
         modalButton.onclick = () => {
             console.log(`GitHub URL: ${githubUrl}`); // URL 출력 (디버깅용)
             if (githubUrl) { // URL이 있는 경우에만 이동
@@ -47,6 +41,29 @@ projectCards.forEach(card => {
             }
         };
         
+        modal.style.display = 'block';
+    });
+});
+
+// 라이센스 카드 클릭 이벤트 추가
+licenseCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const title = card.dataset.title;
+        const imagePath = card.dataset.image;
+
+        // 모달 내용 업데이트
+        modalTitle.textContent = title;
+        modalContent.innerHTML = ''; // 기존 내용 초기화
+        
+        // 이미지 요소 생성 및 추가
+        if (imagePath) {
+            const image = document.createElement('img');
+            image.src = imagePath;
+            image.alt = `${title} 자격증`;
+            modalContent.appendChild(image);
+        }
+
+        modalButton.style.display = 'none';
         modal.style.display = 'block';
     });
 });
@@ -62,3 +79,15 @@ window.onclick = function(event) {
     modal.style.display = 'none';
   }
 };
+
+let currentLang = 'ko';
+
+function toggleLanguage() {
+    const elements = document.querySelectorAll(".lang");
+    currentLang = currentLang === 'ko' ? 'en' : 'ko';
+
+    elements.forEach(el => {
+        const newText = el.getAttribute(`data-lang-${currentLang}`);
+        if (newText) el.textContent = newText;
+    });
+}
