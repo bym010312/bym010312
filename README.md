@@ -1,6 +1,7 @@
 # 자기소개 웹사이트
 한남대학교 컴퓨터공학과 웹스크립트 프로그래밍 학기말 과제로 만든 자기소개 및 이력 소개 웹사이트입니다.  
 사이트 보기: https://bym010312.github.io/bym010312/
+깃허브 주로: https://github.com/bym010312/bym010312
 
 ## 사용 기술
 - HTML, CSS, JavaScript  
