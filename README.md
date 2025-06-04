@@ -1,7 +1,8 @@
 # 자기소개 웹사이트
-한남대학교 컴퓨터공학과 웹스크립트 프로그래밍 학기말 과제로 만든 자기소개 및 이력 소개 웹사이트입니다.  
-사이트 보기: https://bym010312.github.io/bym010312/
-깃허브 주로: https://github.com/bym010312/bym010312
+한남대학교 컴퓨터공학과 웹스크립트 프로그래밍 학기말 과제로 만든 자기소개 및 이력 소개 웹사이트입니다.
+
+- 사이트 보기: https://bym010312.github.io/bym010312/
+- 깃허브 주소: https://github.com/bym010312/bym010312
 
 ## 사용 기술
 - HTML, CSS, JavaScript  
@@ -10,7 +11,34 @@
 
 ## 기능 목록
 
-### 1: 프로젝트 정보 모달 
+### 1: 프로젝트 소개 영상 삽입  
+1. **기능 제목**: YouTube 영상 삽입  
+2. **설명**:  
+   - 특정 프로젝트에 YouTube 소개 영상이 있을 경우, `data-youtube-url` 속성값을 읽어 모달 내에 iframe을 생성합니다.  
+   - 영상이 없으면 iframe 영역을 숨기거나 빈 상태로 두어 레이아웃이 깨지지 않게 처리합니다.  
+3. **코드 위치**:  
+   - `index.html` → 프로젝트 카드 태그에 `data-youtube-url="유튜브링크"` 속성  
+   - `script.js` → 모달 띄우는 함수 내 iframe 삽입 로직  
+4. **코드 설명**:  
+   - `const youtubeURL = clickedCard.getAttribute('data-youtube-url');` 로 URL 값 읽기  
+   - `if (youtubeURL) { modalVideo.innerHTML = `<iframe src="${youtubeURL}" ...></iframe>`; } else { modalVideo.innerHTML = ''; }`  
+   - 사용자가 모달을 닫으면 `modalVideo.innerHTML = ''` 로 iframe 내용 초기화
+
+### 2: 자격증 정보 표시
+1. **기능 제목**: 자격증 정보 표시
+2. **설명**:  
+   - 자격증 카드를 클릭하면 모달 팝업이 뜨며, 자격증 이미지가 표시됩니다.   
+3. **코드 위치**:  
+   - `index.html` → 자격증 카드에 `data-title`, `data-image` 속성 설정  
+   - `script.js` → 45번째 줄부터 자격증 카드 클릭 이벤트 처리  
+4. **코드 설명**:  
+   - `document.querySelectorAll('.licenseCard')`로 모든 자격증 카드 요소를 선택  
+   - 각 카드에 `addEventListener('click', showLicenseModal)`를 등록하여 클릭 시 모달 열기  
+   - `data-title`, `data-image` 속성값을 읽어 모달 제목과 이미지를 동적으로 삽입  
+   - `modalContent.innerHTML = ''`로 기존 내용 초기화 후 이미지 요소 생성 및 추가  
+   - `modalButton.style.display = 'none'`으로 GitHub 버튼 숨김 처리
+
+### 3: 프로젝트 정보 모달 
 1. **기능 제목**: 프로젝트 정보 모달  
 2. **설명**:  
    - 프로젝트 카드(프로젝트명, 대표 이미지 등)를 클릭하면 모달 팝업이 뜹니다.  
@@ -24,32 +52,6 @@
    - `showModal` 함수 내부에서 `data-*` 속성값을 읽어 제목(`modalTitle.textContent`), 설명(`modalDesc.textContent`), GitHub 링크(`modalLink.href`), YouTube iframe(`modalVideo.innerHTML`)을 동적으로 삽입  
    - 닫기 버튼(`.modal-close`)과 모달 바깥 클릭 시(`window.addEventListener('click', ...)`) 모달 숨기기 처리
 
-### 2: YouTube 영상 자동 삽입  
-1. **기능 제목**: YouTube 영상 자동 삽입  
-2. **설명**:  
-   - 특정 프로젝트에 YouTube 소개 영상이 있을 경우, `data-youtube-url` 속성값을 읽어 모달 내에 iframe을 생성합니다.  
-   - 영상이 없으면 iframe 영역을 숨기거나 빈 상태로 두어 레이아웃이 깨지지 않게 처리합니다.  
-3. **코드 위치**:  
-   - `index.html` → 프로젝트 카드 태그에 `data-youtube-url="유튜브링크"` 속성  
-   - `script.js` → 모달 띄우는 함수 내 iframe 삽입 로직  
-4. **코드 설명**:  
-   - `const youtubeURL = clickedCard.getAttribute('data-youtube-url');` 로 URL 값 읽기  
-   - `if (youtubeURL) { modalVideo.innerHTML = `<iframe src="${youtubeURL}" ...></iframe>`; } else { modalVideo.innerHTML = ''; }`  
-   - 사용자가 모달을 닫으면 `modalVideo.innerHTML = ''` 로 iframe 내용 초기화
-
-### 3: 자격증 정보 표시
-1. **기능 제목**: 자격증 정보 표시
-2. **설명**:  
-   - 자격증 카드를 클릭하면 모달 팝업이 뜨며, 자격증 이미지가 표시됩니다.   
-3. **코드 위치**:  
-   - `index.html` → 자격증 카드에 `data-title`, `data-image` 속성 설정  
-   - `script.js` → 45번째 줄부터 자격증 카드 클릭 이벤트 처리  
-4. **코드 설명**:  
-   - `document.querySelectorAll('.licenseCard')`로 모든 자격증 카드 요소를 선택  
-   - 각 카드에 `addEventListener('click', showLicenseModal)`를 등록하여 클릭 시 모달 열기  
-   - `data-title`, `data-image` 속성값을 읽어 모달 제목과 이미지를 동적으로 삽입  
-   - `modalContent.innerHTML = ''`로 기존 내용 초기화 후 이미지 요소 생성 및 추가  
-   - `modalButton.style.display = 'none'`으로 GitHub 버튼 숨김 처리
 
 ### 4: 다국어 전환  
 1. **기능 제목**: 다국어 전환  
